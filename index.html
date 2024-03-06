@@ -19,7 +19,9 @@
         <div class="step1">
             <h1>Общая информация</h1>
             <label>Название шаблона</label>
-            <input type="text" id="template_name" placeholder="Введите название шаблона" autocomplete="off">
+            <input type="text" id="template_name" placeholder="Введите название шаблона" readonly autocomplete="off">
+            <ul id="custom_dropdown" class="custom-dropdown">
+            </ul>
             <label>Вы являетесь</label>
             <input type="text" id="combobox_value" onclick="showDropdown()" placeholder="Выберите роль" readonly autocomplete="off">
             <ul id="roleList" class="dropdown-list">

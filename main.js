@@ -5,7 +5,20 @@ let page3 = document.querySelector('.step3');
 
 let sliderpoint2 = document.getElementById('slider2');
 let sliderpoint3 = document.getElementById('slider3');
+let templates = {
+  "templates": [
+    "Шаблон 1",
+    "Шаблон 2",
+    "Шаблон 3"
+  ]
+};
+const customDropdown = document.getElementById('custom_dropdown');
 
+templates.templates.forEach(template => {
+  let listItem = document.createElement('li');
+  listItem.textContent = template;
+  customDropdown.appendChild(listItem);
+});
 
 document.addEventListener("click", function(event) {
   var dropdown = document.getElementById("roleList");
@@ -46,6 +59,23 @@ function selectRole(value, label) {
   }
 }
 
+
+document.getElementById('template_name').addEventListener('click', function() {
+  var dropdown = document.getElementById('custom_dropdown');
+  var dropdownStyle = window.getComputedStyle(dropdown);
+  if (dropdownStyle.getPropertyValue('display') === 'none') {
+    dropdown.style.display = 'block';
+  } else {
+    dropdown.style.display = 'none';
+  }
+});
+
+document.querySelectorAll('#custom_dropdown li').forEach(item => {
+  item.addEventListener('click', event => {
+    document.getElementById('template_name').value = event.target.textContent;
+    document.getElementById('custom_dropdown').style.display = 'none';
+  });
+});
 
 let placeCounter = 2;
 
